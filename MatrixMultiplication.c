@@ -3,16 +3,33 @@
 
 int main()
 {
-	const int r1 = 3; // number of rows in the first matrix
-	const int c1 = 3; // number of columns in the first matrix
-	const int r2 = 3; // number of rows in the second matrix
-	const int c2 = 3; // number of columns in the second matrix
+	int r1 = 3; // number of rows in the first matrix
+	int c1 = 3; // number of columns in the first matrix
+	int r2 = 3; // number of rows in the second matrix
+	int c2 = 3; // number of columns in the second matrix
 
-	double** m1 = malloc(sizeof(double) *r1);
-	double** m2 = malloc(sizeof(double) * r2);
-	double** r = malloc(sizeof(double) * r1);
+	double** m1 = NULL;
+	double** m2 = NULL;
+	double** r = NULL;
 
+	printf("Matrix Multiplication\n");
+	printf("For each value, press enter\n");
+
+	printf("Define how many rows the first matrix has: \n");
+	scanf_s("%d", &r1);
+	printf("Define how many columns the first matrix has: \n");
+	scanf_s("%d", &c1);
+	printf("Define how many rows the second matrix has: \n");
+	scanf_s("%d", &r2);
+	printf("Define how many columns the second matrix has: \n");
+	scanf_s("%d", &c2);
+
+	
 	//Allocating memory for the matrices
+
+	m1 = malloc(sizeof(double) * r1);
+	m2 = malloc(sizeof(double) * r2);
+	r = malloc(sizeof(double) * r1);
 
 	for (int i = 0;i < r1;i++) {
 		m1[i] = malloc(sizeof(double)*c1);
@@ -81,6 +98,23 @@ int main()
 
 
 	}
+
+	//Freeing the memory
+	for (int i = 0; i < r1; i++) {
+		free(m1[i]);
+	}
+	free(m1);
+
+	for (int i = 0; i < r2; i++) {
+		free(m2[i]);
+	}
+	free(m2);
+
+	for (int i = 0; i < r1; i++) {
+		free(r[i]);
+	}
+
+	free(r);
 
 
 
