@@ -99,6 +99,7 @@ int main()
 
 	}
 
+
 	//Freeing the memory
 	for (int i = 0; i < r1; i++) {
 		free(m1[i]);
@@ -115,6 +116,21 @@ int main()
 	}
 
 	free(r);
+
+
+
+	printf("Type n to enter new values and q to quit\n");
+	char c;
+	scanf_s(" %c", &c);
+	if (c == 'n') {
+		main();
+	}
+	else {
+		return 0;
+	}
+
+
+	return 0;
 
 
 
